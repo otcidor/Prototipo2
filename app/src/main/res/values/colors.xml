@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="app_bg">#F5F7FB</color>
+    <color name="brand_primary">#5B86E5</color>
+    <color name="brand_primary_dark">#3B5BB5</color>
+    <color name="accent">#36D1DC</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="text_main">#1E1E2D</color>
+    <color name="text_dim">#6B7280</color>
+    <color name="divider">#FFE6EAF2</color>
+    <color name="on_primary">#FFFFFFFF</color>
+
+    <!-- Tonos base -->
+    <color name="colorPrimary">#0B3B24</color>     <!-- Verde oscuro elegante -->
+    <color name="colorPrimaryVariant">#062816</color> <!-- Variante más oscura -->
+    <color name="colorSecondary">#4CAF50</color>   <!-- Verde vibrante acento -->
+    <color name="colorSecondaryVariant">#388E3C</color>
+    <!-- Fondo y superficies -->
+    <color name="colorBackground">#041B13</color>  <!-- Fondo muy oscuro -->
+    <color name="colorSurface">#0E2C1B</color>     <!-- Paneles/cards -->
+    <color name="colorSurfaceVariant">#154D33</color>
+    <!-- Texto -->
+    <color name="colorOnPrimary">#E6E6E6</color>   <!-- “Blanco” suave (no puro, más cómodo) -->
+    <color name="colorOnSecondary">#F0F0F0</color> <!-- Un poco más claro que onPrimary -->
+    <color name="colorOnBackground">#D9D9D9</color> <!-- Texto principal -->
+    <color name="colorOnSurface">#CFCFCF</color>   <!-- Texto secundario/gris cálido -->
+
+    <!-- Otros acentos -->
+    <color name="colorError">#CF6679</color>
+    <color name="colorSuccess">#81C784</color>
+    <color name="colorWarning">#FFD54F</color>
+    <color name="colorInfo">#4DD0E1</color>
+
+</resources>

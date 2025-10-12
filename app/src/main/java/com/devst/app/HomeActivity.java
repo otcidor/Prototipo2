@@ -78,6 +78,9 @@ public class HomeActivity extends AppCompatActivity {
         Button btnCompartir = findViewById(R.id.btnCompartir);
         btnLinterna = findViewById(R.id.btnLinterna);
         Button btnCamara = findViewById(R.id.btnCamara);
+        Button btnConfig = findViewById(R.id.btnConfig);
+        Button btnLlamar = findViewById(R.id.btnLlamar);
+        Button btnAgregarEvento = findViewById(R.id.btnAgregarEvento);
 
         // Recibir dato del Login
         emailUsuario = getIntent().getStringExtra("email_usuario");
@@ -89,6 +92,7 @@ public class HomeActivity extends AppCompatActivity {
             Intent i = new Intent(HomeActivity.this, PerfilActivity.class);
             i.putExtra("email_usuario", emailUsuario);
             editarPerfilLauncher.launch(i);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
         // Evento: Intent implícito → abrir web
@@ -114,6 +118,25 @@ public class HomeActivity extends AppCompatActivity {
             share.setType("text/plain");
             share.putExtra(Intent.EXTRA_TEXT, "Hola desde mi app Android 😎");
             startActivity(Intent.createChooser(share, "Compartir usando:"));
+        });
+
+        //Evento: Intent implícito → llamar
+        btnLlamar.setOnClickListener(v -> {
+            Intent llamar = new Intent(Intent.ACTION_DIAL);
+            startActivity(llamar);
+        });
+
+        //Evento: Intent implícito → abrir configuración
+        btnConfig.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, ConfigActivity.class);
+            startActivity(intent);
+        });
+        //Evento: Intent explícito → Agregar evento
+        btnAgregarEvento.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, DetalleActivity.class);
+            intent.putExtra("TITULO_EVENTO", "Reunión de Equipo");
+            intent.putExtra("DESCRIPCION", "Discutir avances del prototipo.");
+            startActivity(intent);
         });
 
 

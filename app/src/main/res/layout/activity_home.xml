@@ -5,102 +5,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".HomeActivity">
 
-    <!-- Barra superior con soporte para menú -->
+    <!-- 1. Barra superior (AppBar) que se contrae al hacer scroll -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/brand_primary"
-            android:title="Menú Principal"
-            android:titleTextColor="@android:color/white"
-            app:titleCentered="true"/>
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@color/brand_primary_dark"
+            app:title="Menú Principal">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:titleCentered="true" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Contenido desplazable, con padding propio -->
+    <!-- 2. Contenido principal con scroll -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Columna simple, centrada y con ancho máximo para que no se estire en tablets -->
         <LinearLayout
-            android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="center_horizontal">
+            android:padding="16dp">
 
-            <!-- Contenedor para limitar el ancho en pantallas grandes -->
-            <LinearLayout
+            <TextView
+                android:id="@+id/tvBienvenida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bienvenido:"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- 3. Grid responsivo para los botones -->
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp">
+                android:columnCount="2"
+                android:rowCount="5"
+                android:alignmentMode="alignMargins"
+                android:columnOrderPreserved="false">
 
-                <!-- Título -->
-                <TextView
-                    android:id="@+id/tvBienvenida"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Bienvenido:"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_main"/>
+                <!-- Botón Perfil -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnIrPerfil"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Ir a Perfil"
+                        app:icon="@drawable/ic_person" />
+                </com.google.android.material.card.MaterialCardView>
 
-                <!-- Botones -->
-                <Button
-                    android:id="@+id/btnIrPerfil"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Ir a Perfil (resultado)"/>
+                <!-- Botón Web -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnAbrirWeb"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Sitio Web"
+                        app:icon="@drawable/ic_web" />
+                </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/btnAbrirWeb"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Abrir sitio web"/>
+                <!-- Botón Correo -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnEnviarCorreo"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Enviar Correo"
+                        app:icon="@drawable/ic_email" />
+                </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/btnEnviarCorreo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Enviar correo"/>
+                <!-- Botón Compartir -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnCompartir"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Compartir"
+                        app:icon="@drawable/ic_share" />
+                </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/btnCompartir"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Compartir texto"/>
+                <!-- Botón Llamar -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnLlamar"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Llamar"
+                        app:icon="@drawable/ic_call" />
+                </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/btnLinterna"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Linterna ON/OFF" />
+                <!-- Botón Evento -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnAgregarEvento"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Agregar Evento"
+                        app:icon="@drawable/ic_event" />
+                </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/btnCamara"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Abrir Cámara"
-                    android:layout_marginTop="12dp"/>
+                <!-- Botón Linterna -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnLinterna"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Linterna"
+                        app:icon="@drawable/ic_flashlight" />
+                </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
+                <!-- Botón Cámara -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnCamara"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Cámara"
+                        app:icon="@drawable/ic_camera" />
+                </com.google.android.material.card.MaterialCardView>
+                <!-- Botón Configuración -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnConfig"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Configuración"
+                        app:icon="@drawable/ic_settings" />
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
         <activity
+            android:name=".DetalleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigActivity"
+            android:exported="false" />
+        <activity
             android:name=".CamaraActivity"
             android:exported="false" />
         <activity
@@ -44,4 +50,5 @@
                 android:resource="@xml/ruta_archivo" />
         </provider>
     </application>
+
 </manifest>

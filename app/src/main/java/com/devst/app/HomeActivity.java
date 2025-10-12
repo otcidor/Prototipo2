@@ -3,11 +3,13 @@ package com.devst.app;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -81,6 +83,8 @@ public class HomeActivity extends AppCompatActivity {
         Button btnConfig = findViewById(R.id.btnConfig);
         Button btnLlamar = findViewById(R.id.btnLlamar);
         Button btnAgregarEvento = findViewById(R.id.btnAgregarEvento);
+        Button btnWifiSettings = findViewById(R.id.btnWifiSettings);
+        Button btnContactos = findViewById(R.id.btnContactos);
 
         // Recibir dato del Login
         emailUsuario = getIntent().getStringExtra("email_usuario");
@@ -126,6 +130,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(llamar);
         });
 
+        //Evento: Intent implícito → seleccionar un contacto
+        btnContactos.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+            selectorContactoLauncher.launch(intent);
+        });
+
         //Evento: Intent implícito → abrir configuración
         btnConfig.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, ConfigActivity.class);
@@ -138,6 +148,14 @@ public class HomeActivity extends AppCompatActivity {
             intent.putExtra("DESCRIPCION", "Discutir avances del prototipo.");
             startActivity(intent);
         });
+
+        // Evento: Intent implícito → abrir ajustes de Wi-Fi
+        btnWifiSettings.setOnClickListener(v -> {
+            // Esta acción abre directamente la configuración de Wi-Fi del dispositivo
+            Intent intent = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
+            startActivity(intent);
+        });
+
 
 
         //Linterna Inicializamos la camara
@@ -181,6 +199,32 @@ public class HomeActivity extends AppCompatActivity {
         );
 
     }
+
+    // Launcher para seleccionar un contacto y recibir su URI
+    private final ActivityResultLauncher<Intent> selectorContactoLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Uri contactUri = result.getData().getData();
+                    // Ahora que tenemos la URI, podemos leer los datos del contacto
+                    leerDatosDelContacto(contactUri);
+                }
+            });
+
+    private void leerDatosDelContacto(Uri contactUri) {
+        String[] projection = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME };
+
+        try (Cursor cursor = getContentResolver().query(contactUri, projection, null, null, null)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                int nameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+                String nombreContacto = cursor.getString(nameIndex);
+
+                Toast.makeText(this, "Contacto seleccionado: " + nombreContacto, Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "No se pudo leer el contacto.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     //Linterna
     private void alternarluz() {

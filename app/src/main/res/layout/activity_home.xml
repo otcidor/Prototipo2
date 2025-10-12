@@ -111,6 +111,16 @@
                         app:icon="@drawable/ic_call" />
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- Botón Contactos-->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnContactos"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Elegir contacto"
+                        app:icon="@drawable/ic_contacts" />
+                </com.google.android.material.card.MaterialCardView>
+
                 <!-- Botón Evento -->
                 <com.google.android.material.card.MaterialCardView
                     style="@style/Widget.App.Card.Menu">
@@ -148,6 +158,15 @@
                         style="@style/Widget.App.Button.Menu"
                         android:text="Configuración"
                         app:icon="@drawable/ic_settings" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnWifiSettings"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Ajustes de Red"
+                        app:icon="@drawable/ic_wifi" />
                 </com.google.android.material.card.MaterialCardView>
 
             </GridLayout>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Permiso necesario para leer los contactos del teléfono -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- Permiso para cámara y flash -->
     <uses-permission android:name="android.permission.CAMERA" /> <!-- Declarar que puede tener flash -->
     <uses-feature

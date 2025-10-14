@@ -50,30 +50,26 @@
                 android:text="Bienvenido:"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="24dp"/>
 
-            <!-- 3. Grid responsivo para los botones -->
+            <!-- SECCIÓN DE INTENTS IMPLÍCITOS -->
+            <TextView
+                style="@style/TextAppearance.Material3.TitleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intents Implícitos"
+                android:layout_marginBottom="8dp"/>
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
-                android:rowCount="5"
                 android:alignmentMode="alignMargins"
-                android:columnOrderPreserved="false">
-
-                <!-- Botón Perfil -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
-                    <Button
-                        android:id="@+id/btnIrPerfil"
-                        style="@style/Widget.App.Button.Menu"
-                        android:text="Ir a Perfil"
-                        app:icon="@drawable/ic_person" />
-                </com.google.android.material.card.MaterialCardView>
+                android:columnOrderPreserved="false"
+                android:layout_marginBottom="24dp">
 
                 <!-- Botón Web -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnAbrirWeb"
                         style="@style/Widget.App.Button.Menu"
@@ -82,8 +78,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Botón Correo -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnEnviarCorreo"
                         style="@style/Widget.App.Button.Menu"
@@ -92,8 +87,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Botón Compartir -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnCompartir"
                         style="@style/Widget.App.Button.Menu"
@@ -101,9 +95,17 @@
                         app:icon="@drawable/ic_share" />
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Botón Llamar -->
                 <com.google.android.material.card.MaterialCardView
                     style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnVerMapa"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Ver Mapa"
+                        app:icon="@drawable/ic_map" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Botón Llamar -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnLlamar"
                         style="@style/Widget.App.Button.Menu"
@@ -112,8 +114,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Botón Contactos-->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnContactos"
                         style="@style/Widget.App.Button.Menu"
@@ -121,19 +122,8 @@
                         app:icon="@drawable/ic_contacts" />
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Botón Evento -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
-                    <Button
-                        android:id="@+id/btnAgregarEvento"
-                        style="@style/Widget.App.Button.Menu"
-                        android:text="Agregar Evento"
-                        app:icon="@drawable/ic_event" />
-                </com.google.android.material.card.MaterialCardView>
-
                 <!-- Botón Linterna -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnLinterna"
                         style="@style/Widget.App.Button.Menu"
@@ -142,31 +132,65 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Botón Cámara -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnCamara"
                         style="@style/Widget.App.Button.Menu"
                         android:text="Cámara"
                         app:icon="@drawable/ic_camera" />
                 </com.google.android.material.card.MaterialCardView>
-                <!-- Botón Configuración -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
-                    <Button
-                        android:id="@+id/btnConfig"
-                        style="@style/Widget.App.Button.Menu"
-                        android:text="Configuración"
-                        app:icon="@drawable/ic_settings" />
-                </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.App.Card.Menu">
+                <!-- Botón Wifi -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
                         android:id="@+id/btnWifiSettings"
                         style="@style/Widget.App.Button.Menu"
                         android:text="Ajustes de Red"
                         app:icon="@drawable/ic_wifi" />
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <!-- SECCIÓN DE INTENTS EXPLÍCITOS -->
+            <TextView
+                style="@style/TextAppearance.Material3.TitleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intents Explícitos"
+                android:layout_marginBottom="8dp"/>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:alignmentMode="alignMargins"
+                android:columnOrderPreserved="false">
+
+                <!-- Botón Perfil -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnIrPerfil"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Ir a Perfil"
+                        app:icon="@drawable/ic_person" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Botón Evento -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnAgregarEvento"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Agregar Evento"
+                        app:icon="@drawable/ic_event" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Botón Configuración -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnConfig"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Configuración"
+                        app:icon="@drawable/ic_settings" />
                 </com.google.android.material.card.MaterialCardView>
 
             </GridLayout>

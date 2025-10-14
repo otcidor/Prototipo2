@@ -53,4 +53,14 @@
         </provider>
     </application>
 
+    <queries>
+        <!-- Declara la intención de interactuar con apps que manejan geo URIs -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="geo" />
+        </intent>
+        <!-- Opcional, pero más específico: declara la intención de interactuar con Google Maps -->
+        <package android:name="com.google.android.apps.maps" />
+    </queries>
+
 </manifest>

@@ -85,6 +85,7 @@ public class HomeActivity extends AppCompatActivity {
         Button btnAgregarEvento = findViewById(R.id.btnAgregarEvento);
         Button btnWifiSettings = findViewById(R.id.btnWifiSettings);
         Button btnContactos = findViewById(R.id.btnContactos);
+        Button btnVerMapa = findViewById(R.id.btnVerMapa);
 
         // Recibir dato del Login
         emailUsuario = getIntent().getStringExtra("email_usuario");
@@ -128,6 +129,30 @@ public class HomeActivity extends AppCompatActivity {
         btnLlamar.setOnClickListener(v -> {
             Intent llamar = new Intent(Intent.ACTION_DIAL);
             startActivity(llamar);
+        });
+
+        // Evento: Intent implícito → abrir ubicación en Google Maps
+        btnVerMapa.setOnClickListener(v -> {
+            String lat = "-33.45694";
+            String lng = "-70.64827";
+            // Texto de búsqueda para el marcador
+            String query = "Plaza de Armas, Santiago, Chile";
+            // Codificar el texto de búsqueda para que sea seguro en una URI
+            String encodedQuery = Uri.encode(query);
+            // Crear la URI con el formato "geo:"
+            Uri gmmIntentUri = Uri.parse("geo:" + lat + "," + lng + "?q=" + encodedQuery);
+            // Crear el Intent con la acción ACTION_VIEW
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            // Esto asegura que se abra en Google Maps si está instalado.
+            mapIntent.setPackage("com.google.android.apps.maps");
+
+            // Verificar si hay una aplicación que pueda manejar este Intent
+            if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(mapIntent);
+            } else {
+                // Informar al usuario si Google Maps no está instalado
+                Toast.makeText(this, "Google Maps no está instalado.", Toast.LENGTH_SHORT).show();
+            }
         });
 
         //Evento: Intent implícito → seleccionar un contacto

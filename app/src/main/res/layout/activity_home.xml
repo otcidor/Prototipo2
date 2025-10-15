@@ -122,6 +122,15 @@
                         app:icon="@drawable/ic_contacts" />
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- Botón Evento -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnAgregarEvento"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Agregar Evento"
+                        app:icon="@drawable/ic_event" />
+                </com.google.android.material.card.MaterialCardView>
+
                 <!-- Botón Linterna -->
                 <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
                     <Button
@@ -175,14 +184,7 @@
                         app:icon="@drawable/ic_person" />
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Botón Evento -->
-                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
-                    <Button
-                        android:id="@+id/btnAgregarEvento"
-                        style="@style/Widget.App.Button.Menu"
-                        android:text="Agregar Evento"
-                        app:icon="@drawable/ic_event" />
-                </com.google.android.material.card.MaterialCardView>
+
 
                 <!-- Botón Configuración -->
                 <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">

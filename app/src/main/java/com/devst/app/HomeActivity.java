@@ -167,6 +167,24 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(HomeActivity.this, ConfigActivity.class);
             startActivity(intent);
         });
+
+        // Evento: Intent explícito → abrir ayuda
+        Button btnAyuda = findViewById(R.id.btnAyuda);
+        btnAyuda.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, AyudaActivity.class);
+            startActivity(intent);
+        });
+
+        // Evento: Intent explícito → abrir detalle
+        Button btnVerDetalle = findViewById(R.id.btnVerDetalle);
+        btnVerDetalle.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, DetalleActivity.class);
+            // Pasamos datos extra, como pide el requisito Nº1
+            intent.putExtra("TITULO_EVENTO", "Detalle de Ítem");
+            intent.putExtra("DESCRIPCION", "Este es un ejemplo de cómo pasar datos de una Activity a otra usando un Intent explícito.");
+            startActivity(intent);
+        });
+
         // Evento: Intent implícito → Agregar evento al calendario
         btnAgregarEvento.setOnClickListener(v -> {
             // Crea un Intent con la acción para insertar un evento
@@ -285,17 +303,6 @@ public class HomeActivity extends AppCompatActivity {
             } catch (CameraAccessException ignored) {}
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
     // ===== Menú en HomeActivity =====
     @Override

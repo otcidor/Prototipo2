@@ -22,6 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
         <activity
+            android:name=".AyudaActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetalleActivity"
             android:exported="false" />
         <activity

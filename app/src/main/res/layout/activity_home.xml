@@ -195,6 +195,24 @@
                         app:icon="@drawable/ic_settings" />
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- En activity_home.xml, dentro del GridLayout explícito -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnAyuda"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Ayuda"
+                        app:icon="@drawable/ic_help" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- En activity_home.xml, dentro del GridLayout explícito -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnVerDetalle"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Ver Detalle"
+                        app:icon="@drawable/ic_info" /> <!-- Crea este icono (New > Vector Asset > busca "info") -->
+                </com.google.android.material.card.MaterialCardView>
+
             </GridLayout>
 
         </LinearLayout>

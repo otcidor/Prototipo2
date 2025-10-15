@@ -9,6 +9,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -166,12 +167,22 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(HomeActivity.this, ConfigActivity.class);
             startActivity(intent);
         });
-        //Evento: Intent explícito → Agregar evento
+        // Evento: Intent implícito → Agregar evento al calendario
         btnAgregarEvento.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, DetalleActivity.class);
-            intent.putExtra("TITULO_EVENTO", "Reunión de Equipo");
-            intent.putExtra("DESCRIPCION", "Discutir avances del prototipo.");
-            startActivity(intent);
+            // Crea un Intent con la acción para insertar un evento
+            Intent intent = new Intent(Intent.ACTION_INSERT)
+                    .setData(CalendarContract.Events.CONTENT_URI)
+                    .putExtra(CalendarContract.Events.TITLE, "Reunión de Prototipo")
+                    .putExtra(CalendarContract.Events.EVENT_LOCATION, "Oficina Central")
+                    .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, System.currentTimeMillis())
+                    .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, System.currentTimeMillis() + 60 * 60 * 1000); // 1 hora después
+
+            // Verifica que haya una app de calendario que pueda manejar el Intent
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "No se encontró una aplicación de calendario.", Toast.LENGTH_SHORT).show();
+            }
         });
 
         // Evento: Intent implícito → abrir ajustes de Wi-Fi

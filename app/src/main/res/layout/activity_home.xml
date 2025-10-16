@@ -210,11 +210,10 @@
                         android:id="@+id/btnVerDetalle"
                         style="@style/Widget.App.Button.Menu"
                         android:text="Ver Detalle"
-                        app:icon="@drawable/ic_info" /> <!-- Crea este icono (New > Vector Asset > busca "info") -->
+                        app:icon="@drawable/ic_info" />
                 </com.google.android.material.card.MaterialCardView>
 
             </GridLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

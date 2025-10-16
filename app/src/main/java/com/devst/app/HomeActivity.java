@@ -183,6 +183,7 @@ public class HomeActivity extends AppCompatActivity {
             intent.putExtra("TITULO_EVENTO", "Detalle de Ítem");
             intent.putExtra("DESCRIPCION", "Este es un ejemplo de cómo pasar datos de una Activity a otra usando un Intent explícito.");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
         // Evento: Intent implícito → Agregar evento al calendario

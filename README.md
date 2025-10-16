@@ -72,16 +72,24 @@ A continuación se detallan los 5 intents implícitos implementados como parte c
 
 Aquí puedes ver algunas de las pantallas principales de la aplicación:
 
-**Pantalla Principal (Home)**
-![Pantalla Principal](screenshots/home.gif)
+    <p align="center">
+      <strong>Pantalla Principal (Home)</strong><br>
+      <img src="screenshots/home.gif" width="350">
+    </p>
 
-**Selector de Contactos**
-![Selector de Contactos](screenshots/contactos.gif)
+    <p align="center">
+      <strong>Selector de Contactos</strong><br>
+      <img src="screenshots/contactos.gif" width="350">
+    </p>
 
-**Pantalla de Ayuda**
-![Pantalla de Ayuda](screenshots/ayuda.gif)
+    <p align="center">
+      <strong>Pantalla de Ayuda</strong><br>
+      <img src="screenshots/ayuda.gif" width="350">
+    </p>
 
-**Pantalla de Ver Detalle con Animación**
-![Evento en Calendario](screenshots/detalle.gif)
+    <p align="center">
+      <strong>Pantalla de Ver Detalle con Animación</strong><br>
+      <img src="screenshots/detalle.gif" width="350">
+    </p>
 
 ---

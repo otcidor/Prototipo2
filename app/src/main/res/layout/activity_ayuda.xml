@@ -57,7 +57,37 @@
                 style="@style/TextAppearance.Material3.BodyLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="• 'Ver Mapa' te mostrará una ubicación predefinida en Google Maps."/>
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="• 'Agregar Evento' te permitirá crear un evento en tu calendario."/>
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="• 'Llamar' te permitirá llamar en la app de teléfono."/>
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="• 'Contactos' te permitirá seleccionar un contacto de tu agenda."/>
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="• 'Ajustes de Red' te permitirá abrir las ajustes de red de tu dispositivo."/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

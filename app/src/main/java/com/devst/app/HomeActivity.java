@@ -211,8 +211,6 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-
         //Linterna Inicializamos la camara
 
         camara = (CameraManager) getSystemService(CAMERA_SERVICE);

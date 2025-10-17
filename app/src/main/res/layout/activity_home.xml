@@ -140,17 +140,12 @@
                         app:icon="@drawable/ic_flashlight" />
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Botón Cámara -->
-                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
-                    <Button
-                        android:id="@+id/btnCamara"
-                        style="@style/Widget.App.Button.Menu"
-                        android:text="Cámara"
-                        app:icon="@drawable/ic_camera" />
-                </com.google.android.material.card.MaterialCardView>
-
                 <!-- Botón Wifi -->
-                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                <!-- MODIFICACIÓN AQUÍ -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu"
+                    android:layout_columnSpan="2"
+                    android:layout_width="0dp">
                     <Button
                         android:id="@+id/btnWifiSettings"
                         style="@style/Widget.App.Button.Menu"
@@ -184,7 +179,14 @@
                         app:icon="@drawable/ic_person" />
                 </com.google.android.material.card.MaterialCardView>
 
-
+                <!-- Botón Cámara -->
+                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                    <Button
+                        android:id="@+id/btnCamara"
+                        style="@style/Widget.App.Button.Menu"
+                        android:text="Cámara"
+                        app:icon="@drawable/ic_camera" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Botón Configuración -->
                 <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
@@ -205,7 +207,11 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- En activity_home.xml, dentro del GridLayout explícito -->
-                <com.google.android.material.card.MaterialCardView style="@style/Widget.App.Card.Menu">
+                <!-- MODIFICACIÓN AQUÍ -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card.Menu"
+                    android:layout_columnSpan="2"
+                    android:layout_width="0dp">
                     <Button
                         android:id="@+id/btnVerDetalle"
                         style="@style/Widget.App.Button.Menu"
